@@ -1,2 +1,2 @@
 # DDR
-This is my first differential drive robot
+This repository contains arduino codes for android phone controlled differential drive robot.
