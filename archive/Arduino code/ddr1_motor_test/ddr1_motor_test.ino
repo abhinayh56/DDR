@@ -1,21 +1,17 @@
 int ml1=2, ml2=3, mr1=7, mr2=4, enl=5, enr=6;
-float x;
+
 void setup(){
-  Serial.begin(9600);
-  
+  pinMode(enl,OUTPUT);
+  pinMode(enr,OUTPUT);
   pinMode(ml1,OUTPUT);
   pinMode(ml2,OUTPUT);
   pinMode(mr1,OUTPUT);
   pinMode(mr2,OUTPUT);
-
-  digitalWrite(ml1,LOW);
-  digitalWrite(ml2,LOW);
-  digitalWrite(mr1,LOW);
-  digitalWrite(mr2,LOW);
   
-  analogWrite(enr,100);
-  analogWrite(enl,100);
+  analogWrite(enr,80);
+  analogWrite(enl,80);
 }
+
 void hold(){
   digitalWrite(ml1,LOW);
   digitalWrite(ml2,LOW);
@@ -57,30 +53,15 @@ void right(){
 }
 
 void loop(){
-  if(Serial.available()>0){
-    x=Serial.read();
-    Serial.println(char(x));
-    if(x=='s'){
-      hold();
-    }
-    if(x=='f'){
-      front();
-    }
-    if(x=='b'){
-      back();
-    }
-    if(x=='l'){
-      left();
-    }
-    if(x=='r'){
-      right();
-    }
-    if(x=='a'){
-      right();
-      delay(100);
-      left();
-      delay(100);
-    }
+  front();
+  delay(5000);
+  back();
+  delay(5000);
+  left();
+  delay(5000);
+  right();
+  delay(5000);
+  hold();
+  delay(5000);
   }
-}
 
